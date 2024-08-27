@@ -43,7 +43,7 @@ export default function Inicio() {
 
   return (
     <div className="container mx-auto p-4">
-      <Card className="w-full max-w-md mx-auto mt-5">
+      <Card className="w-full max-w-md mx-auto bg-slate-100 mt-5">
         <CardHeader>
           <CardTitle>Promociones</CardTitle>
         </CardHeader>
