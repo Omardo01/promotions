@@ -49,17 +49,14 @@ export default function Componente() {
     const numerosValidos = numeros
       .map(num => Math.abs(parseInt(num)))
       .filter(num => !isNaN(num))
-
     // Si hay menos de 2 números válidos, se reinician los resultados y se termina la ejecución de la función.
     if (numerosValidos.length < 2) {
       setResultadoTradicional(null)
       setTiempoTradicional(null)
       return
     }
-
     // Marca el tiempo de inicio para medir cuánto tiempo toma calcular el MCD.
     const tiempoInicio = performance.now()
-
     // Función interna para encontrar el MCD de dos números usando el método tradicional.
     // Comienza desde el menor de los dos números y verifica todos los divisores posibles.
     const encontrarMCD = (a: number, b: number): number => {
@@ -71,21 +68,16 @@ export default function Componente() {
       }
       return 1 // Si no se encuentra otro divisor, el MCD es 1.
     }
-
     // Inicializa 'resultado' con el primer número válido.
     let resultado = numerosValidos[0]
-    
     // Itera sobre el resto de los números válidos y encuentra el MCD acumulado.
     for (let i = 1; i < numerosValidos.length; i++) {
       resultado = encontrarMCD(resultado, numerosValidos[i])
     }
-
     // Marca el tiempo de fin y calcula el tiempo total que tomó el cálculo.
     const tiempoFin = performance.now()
-    
     // Actualiza el estado con el resultado del MCD calculado.
     setResultadoTradicional(resultado)
-    
     // Actualiza el estado con el tiempo que tomó el cálculo.
     setTiempoTradicional(tiempoFin - tiempoInicio)
   }
@@ -104,9 +96,7 @@ export default function Componente() {
       setTiempoEuclides(null)
       return
     }
-  
     const tiempoInicio = performance.now()
-  
     // Adaptando el algoritmo de Euclides como en la imagen
     const encontrarMCD = (a: number, b: number): number => {
       while (a !== b) { // Mientras a no sea igual a b
@@ -118,12 +108,10 @@ export default function Componente() {
       }
       return a; // Retorna el MCD cuando a es igual a b
     }
-  
     let resultado = numerosValidos[0]
     for (let i = 1; i < numerosValidos.length; i++) {
       resultado = encontrarMCD(resultado, numerosValidos[i])
     }
-  
     const tiempoFin = performance.now()
     setResultadoEuclides(resultado)
     setTiempoEuclides(tiempoFin - tiempoInicio)
@@ -138,17 +126,14 @@ export default function Componente() {
     const numerosValidos = numeros
       .map(num => Math.abs(parseInt(num)))
       .filter(num => !isNaN(num))
-  
     // Si hay menos de 2 números válidos, se reinician los resultados y se termina la ejecución de la función.
     if (numerosValidos.length < 2) {
       setResultadoFactoresPrimos(null)
       setTiempoFactoresPrimos(null)
       return
     }
-  
     // Marca el tiempo de inicio para medir cuánto tiempo toma calcular el MCD utilizando el método de factores primos.
     const tiempoInicio = performance.now()
-  
     // Función para obtener los factores primos de un número.
     // Se utiliza un divisor inicial de 2 y se va dividiendo el número mientras sea divisible.
     const obtenerFactoresPrimos = (num: number): number[] => {
@@ -164,7 +149,6 @@ export default function Componente() {
       }
       return factores // Retornamos la lista de factores primos obtenidos
     }
-  
     // Obtenemos las listas de factores primos para cada número válido
     const listasFactoresPrimos = numerosValidos.map(obtenerFactoresPrimos)
     const factoresComunes: number[] = [] // Lista para almacenar los factores comunes
@@ -188,16 +172,12 @@ export default function Componente() {
         listasFactoresPrimos[0].splice(0, 1)
       }
     }
-  
     // Calculamos el MCD multiplicando todos los factores comunes encontrados
     const resultado = factoresComunes.reduce((a, b) => a * b, 1)
-  
     // Marca el tiempo de fin y calcula el tiempo total que tomó el cálculo
     const tiempoFin = performance.now()
-    
     // Actualizamos el estado con el resultado del MCD calculado
     setResultadoFactoresPrimos(resultado)
-    
     // Actualizamos el estado con el tiempo que tomó el cálculo
     setTiempoFactoresPrimos(tiempoFin - tiempoInicio)
   }

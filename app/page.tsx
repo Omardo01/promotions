@@ -14,13 +14,18 @@ export default function Component() {
         </Link>
         <div className="relative">
           <Separator className="my-4" />
-          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-2 text-sm text-muted-foreground">
-            or
-          </span>
+          
         </div>
         <Link href="/mcd" className="block w-full">
           <Button className="w-full text-lg py-6" size="lg">
             MCD
+          </Button>
+        </Link>
+        <Separator className="my-4" />
+          
+          <Link href="/primos" className="block w-full">
+          <Button className="w-full text-lg py-6 bg-cyan-300" size="lg">
+            Numeros primos
           </Button>
         </Link>
       </div>

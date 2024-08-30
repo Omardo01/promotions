@@ -37,6 +37,7 @@ export default function Inicio() {
 
   // Función para obtener la promoción según la edad
   const obtenerPromocion = (edad: number) => {
+    
     if (edad > 40) return "20% de descuento en Opticavisión"
     if (edad >= 15 && edad <= 20) return "15% de descuento en boliche"
     if (edad > 20 && edad <= 40) return "10% de descuento en Rodizio"
